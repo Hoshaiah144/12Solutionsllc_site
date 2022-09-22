@@ -11,7 +11,7 @@ node {
     
 
         stage('NPM Install') {
-            sh 'npm install -g npm@8.19.2'
+            sh 'sudo npm install -g npm@8.19.2'
         }
         
         stage('Build') {
