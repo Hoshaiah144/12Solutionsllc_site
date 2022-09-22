@@ -11,7 +11,7 @@ node {
     
 
         stage('NPM Install') {
-            sh 'sudo npm cache clean --force'
+            sh 'npm cache clean --force'
             sh 'sudo chown -R `whoami` ~/.npm'
             sh 'sudo chown -R `whoami` /usr/local/lib/node_modules'
             sh 'npm install -g npm@8.19.2'
