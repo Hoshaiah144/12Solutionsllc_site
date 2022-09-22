@@ -10,9 +10,9 @@ node {
         }
     
 
-        // stage('NPM Install') {
-        //     sh 'sudo npm install -g npm@8.19.2'
-        // }
+        stage('NPM Install') {
+            sh 'sudo npm install -g npm@8.19.2'
+        }
         
         stage('Build') {
             sh 'npm run build'
