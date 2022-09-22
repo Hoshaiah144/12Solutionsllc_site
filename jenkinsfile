@@ -1,0 +1,33 @@
+pipeline {
+    agent {
+        label 'jenkins'
+    }
+    stages {
+        stage ('SCM'){
+            steps {
+                sh 'git clone https://github.com/VamsiTechTuts/javaprojrepo.git'
+            }
+        }
+        stage ('Build'){
+            steps {
+                dir('javaprojrepo/hellospringeks'){
+                sh 'mvn clean install'
+                }
+            }
+        }
+        stage ('docekr build'){
+            steps {
+                dir('javaprojrepo/hellospringeks'){
+                sh 'docker build -t uokereh/hellospringeks .'
+                }
+         }
+        }
+        stage ('docker login'){
+            steps {
+                withCredentials([string(credential: 'docker', variable: 'dockerpwd')]){
+                sh 'docker login -u uokereh -p ${dockerpwd}'
+                }
+            }
+        }
+    }
+}
