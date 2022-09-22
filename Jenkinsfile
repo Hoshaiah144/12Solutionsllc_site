@@ -11,7 +11,8 @@ node {
     
 
         stage('NPM Install') {
-            sh 'npm install'
+            sh 'npm cache clean --force'
+            sh 'npm install -g npm@8.19.2'
         }
         
         stage('Build') {
