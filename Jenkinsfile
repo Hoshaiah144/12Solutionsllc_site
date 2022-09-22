@@ -48,13 +48,17 @@
 // // }
 
 
-Pipeline Script: 
 pipeline {
   agent any
+
   tools {nodejs "node"}
+  
   stages {
     stage('Build') {
       steps {
         git 'https://github.com/Uokereh/12Solutionsllc_site.git'
         sh 'npm install'
-      }}}}
+      }  
+    }
+  }
+}
