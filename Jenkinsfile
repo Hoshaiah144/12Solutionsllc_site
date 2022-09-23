@@ -3,7 +3,7 @@ node {
 
     
     try {
-        notify('INITIALIZED')
+        pipeline('INITIALIZED')
     
         stage('Git Checkout'){
             git 'https://github.com/Uokereh/12Solutionsllc_site.git'
