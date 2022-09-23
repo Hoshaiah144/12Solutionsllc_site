@@ -5,7 +5,7 @@ node {
     try {
         notify('INITIALIZED')
     
-        stage('Git Checkout') {
+        stage('Git Checkout'){
             git 'https://github.com/Uokereh/12Solutionsllc_site.git'
         }
     
@@ -21,9 +21,9 @@ node {
 
         stage('Deploy') {
             sshagent(['apache']){
-                sh 'ssh -o StrictHostKeyChecking=no ec2-user@18.232.101.132 "rm -rf /var/www/html/dist/*"'
-                sh 'ssh -o StrictHostKeyChecking=no ec2-user@18.232.101.132 "mkdir -p /var/www/html"'
-                sh 'scp -r ${WORKSPACE}/dist/notus-angular/* ec2-user@18.232.101.132:/var/www/html/'
+                sh 'ssh -o StrictHostKeyChecking=no ec2-user@52.91.86.3 "rm -rf /var/www/html/dist/*"'
+                sh 'ssh -o StrictHostKeyChecking=no ec2-user@52.91.86.3 "mkdir -p /var/www/html"'
+                sh 'scp -r ${WORKSPACE}/dist/notus-angular/* ec2-user@52.91.86.3:/var/www/html/'
             }
                 
         }   
